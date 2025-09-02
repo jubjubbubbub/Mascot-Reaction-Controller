@@ -1,0 +1,18 @@
+public class MascotReactionController : MonoBehaviour {
+    public Animator mascotAnimator;
+    public AudioSource mascotVoice;
+
+    public void ReactToMood(MascotMood mood) {
+        switch (mood) {
+            case MascotMood.JackpotHigh:
+                mascotAnimator.SetTrigger("Celebrate");
+                mascotVoice.PlayOneShot(Resources.Load<AudioClip>("Voices/Hype"));
+                break;
+            case MascotMood.SaltySlump:
+                mascotAnimator.SetTrigger("Sulky");
+                mascotVoice.PlayOneShot(Resources.Load<AudioClip>("Voices/Sarcastic"));
+                break;
+            // Add other moods here
+        }
+    }
+}
